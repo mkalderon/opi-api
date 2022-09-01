@@ -67,7 +67,6 @@ service VirtioScsiLunService {
 // TODO: Virtio-fs
 
 message NVMeSubsystem {
-    int64 id = 1;
     string nqn = 3;
     string serial_number = 4;
     string model_number = 5;
@@ -125,15 +124,15 @@ message NVMeSubsystemCreateRequest {
 }
 
 message NVMeSubsystemCreateResponse {
-    // Intentionally empty.
+    uint32 result = 1;
 }
 
 message NVMeSubsystemDeleteRequest {
-    int64 id = 1;
+    string nqn = 1;
 }
 
 message NVMeSubsystemDeleteResponse {
-    // Intentionally empty.
+    uint32 result = 1;
 }
 
 message NVMeSubsystemUpdateRequest {
@@ -141,7 +140,7 @@ message NVMeSubsystemUpdateRequest {
 }
 
 message NVMeSubsystemUpdateResponse {
-    // Intentionally empty.
+    uint32 result = 1;
 }
 
 message NVMeSubsystemListRequest {
@@ -153,7 +152,7 @@ message NVMeSubsystemListResponse {
 }
 
 message NVMeSubsystemGetRequest {
-    int64 id = 1;
+    string nqn = 1;
 }
 
 message NVMeSubsystemGetResponse {
@@ -161,7 +160,7 @@ message NVMeSubsystemGetResponse {
 }
 
 message NVMeSubsystemStatsRequest {
-    int64 id = 1;
+    string nqn = 1;
 }
 
 message NVMeSubsystemStatsResponse {
